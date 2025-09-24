@@ -4,12 +4,12 @@ import "./BlogItem.css";
 function BlogItem(props) {
     const editBlogHandler = ()=>{
         const blog = {
-            url:props.url,title:props.title,description:props.description
+            id:props.id,url:props.url,title:props.title,description:props.description
         }
         props.onEdit(blog);
     }
     const deleteBlogHandler = ()=>{
-        props.onDelete(props.index);
+        props.onDelete(props.id);
     }
     return (
         <div className='blog-elements'>

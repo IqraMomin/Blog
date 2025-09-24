@@ -5,15 +5,15 @@ import "./BlogList.css";
 function BlogList(props) {
     return (
         <div className='blog-list'>
-            {props.blogDetails.map((ele,i)=>{
+            {props.blogDetails.map((ele)=>{
                 return <BlogItem 
                 onDelete={props.onDelete} 
-                onEdit={props.onEdit}
-                index={i} 
-                key={i} 
+                onEdit={props.onEdit} 
+                key={ele.id} 
                 title={ele.title} 
                 url={ele.url} 
-                description={ele.description}/>
+                description={ele.description}
+                id={ele.id}/>
             })}
             
             
