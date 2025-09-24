@@ -1,0 +1,7 @@
+.blog-list{
+    background-color: #787182;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}

@@ -1,0 +1,24 @@
+img{
+    width: 200px;
+    height: 200px;
+}
+.blog-elements{
+    border: 1px solid black;
+    border-radius: 5px;
+    text-align: center;
+    width: 250px;
+    height:300px;
+    margin: 2rem;
+}
+
+.blog-elements button{
+    
+    background-color: rgb(152, 126, 177);
+    font: inherit;
+    cursor: pointer;
+    border: 1px solid #40005d;
+    color: white;
+    border-radius: 12px;
+    box-sizing: border-box;
+    font-size: 18px;
+}
