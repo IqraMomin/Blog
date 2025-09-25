@@ -9,7 +9,7 @@ function BlogPage() {
         return data;
     })
     const [editBlog, setEditBlog] = useState(null);
-
+    const [isEditing,setIsEditing] = useState(false);
     useEffect(() => {
         localStorage.setItem("blog", JSON.stringify(list));
     }, [list]);
@@ -44,8 +44,13 @@ function BlogPage() {
     }
     return (
         <div className="list-control">
-            <BlogForm onAdd={addDetailsHandler} editBlog={editBlog} onCancel={onCancel}/>
+            <div className='form-control'>
+            {(!isEditing && <button className="btn" type="button" onClick={()=>{setIsEditing(true)}}>Post BLOG</button>)}
+            {isEditing && 
+            <BlogForm onAdd={addDetailsHandler} editBlog={editBlog} onCancel={onCancel} onClose={()=>{setIsEditing(false)}}/>}
+             </div>
             <BlogList blogDetails={list} onDelete={deleteBlog} onEdit={editBlogHandler} />
+           
         </div>
     )
 }

@@ -53,7 +53,7 @@ function BlogForm(props) {
 
     return (
         <form onSubmit={postBlogHandler}>
-            <div className='form-control'>
+            <div>
                 <div>
                     <label htmlFor='image'>Image URL: </label>
                     <input id='image' value={url} onChange={urlChangeHandler} type='text' />
@@ -78,6 +78,8 @@ function BlogForm(props) {
                 <div className='form-btn'>
                 <button type='submit'>Post BLOG</button>
                 <button type='button' onClick={clearInputsHandler}>Clear</button>
+                <button type='button' onClick={props.onClose}>Close</button>
+                
                 </div>}             
             </div>
         </form>
