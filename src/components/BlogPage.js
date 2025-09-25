@@ -38,12 +38,13 @@ function BlogPage() {
     }
     const editBlogHandler = (blog) => {
         setEditBlog(blog);
-
-
+    }
+    const onCancel = ()=>{
+        setEditBlog(null);
     }
     return (
         <div className="list-control">
-            <BlogForm onAdd={addDetailsHandler} editBlog={editBlog} />
+            <BlogForm onAdd={addDetailsHandler} editBlog={editBlog} onCancel={onCancel}/>
             <BlogList blogDetails={list} onDelete={deleteBlog} onEdit={editBlogHandler} />
         </div>
     )

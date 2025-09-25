@@ -36,3 +36,6 @@
 .form-control button:hover{
     background-color: #615168;
 }
+.form-btn{
+    display: flex;
+}

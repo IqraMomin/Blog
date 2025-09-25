@@ -6,17 +6,14 @@ function BlogForm(props) {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [id, setId] = useState("");
-    const [button, setButton] = useState("Post BLOG");
 
     useEffect(() => {
         if (props.editBlog) {
             setId(props.editBlog.id);
-            setButton("Edit BLOG");
             setUrl(props.editBlog.url);
             setTitle(props.editBlog.title);
             setDescription(props.editBlog.description);
         } else {
-            setButton("Post BLOG");
             setId("");
             setUrl("");
             setTitle("");
@@ -48,7 +45,11 @@ function BlogForm(props) {
     const descriptionChangeHandler = (event) => {
         setDescription(event.target.value);
     }
-
+    const clearInputsHandler = ()=>{
+            setTitle("");
+            setUrl("");
+            setDescription("");
+    }
 
     return (
         <form onSubmit={postBlogHandler}>
@@ -65,7 +66,19 @@ function BlogForm(props) {
                     <label htmlFor='description'>Description :  </label>
                     <input id='description' value={description} onChange={descriptionChangeHandler} type='text' />
                 </div>
-                <button type='submit'>{button}</button>
+                {props.editBlog && 
+                <div className='form-btn'>
+                <button type='submit'>Edit BLOG</button>
+                <button type='click' onClick={()=>{
+                    props.onCancel();
+                }}>Cancel</button>
+                <button type='button' onClick={clearInputsHandler}>Clear</button>
+                </div>}
+                {!props.editBlog && 
+                <div className='form-btn'>
+                <button type='submit'>Post BLOG</button>
+                <button type='button' onClick={clearInputsHandler}>Clear</button>
+                </div>}             
             </div>
         </form>
     )

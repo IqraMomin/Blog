@@ -4,4 +4,5 @@
     align-items: center;
     height: 100%;
     max-height: max-content;
+    flex-wrap: wrap;
 }
